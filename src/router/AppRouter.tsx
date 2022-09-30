@@ -7,19 +7,15 @@ import { AboutPage } from '../app/pages/AboutPage';
 import { SideBar } from '../ui/components/sidebar/SideBar';
 import { BuscarPage } from '../app/pages/BuscarPage';
 import { ComentariosPage } from '../app/pages/ComentariosPage';
+import { InnerRoutes } from './InnerRoutes';
 
 export const AppRouter = () => {
   return (
     <>
-        <NavBar />
-        <SideBar />
         
         <Routes>
-            <Route path='/' element={<LoginPage />}/>
-            <Route path='home' element={<HomePage />}/>
-            <Route path='about' element={<AboutPage />}/>
-            <Route path='buscar' element={<BuscarPage />}/>
-            <Route path='comentarios' element={<ComentariosPage />}/>
+            <Route path='login' element={<LoginPage />}/>
+            <Route path='/*' element={<InnerRoutes />}/>
         </Routes>
     </>
   )
