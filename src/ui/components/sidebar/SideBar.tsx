@@ -9,27 +9,33 @@ export const SideBar = () => {
     <aside className="nav_cont">
       <ul className="nav">
 
-      <div className='nav-group'>
-          <span><AiFillHome className='icons'/></span>
-          <li className="nav_items ">
-          <span><NavLink to='/home'> Inicio </NavLink></span>
-          </li>
-        </div>
-
+      <NavLink to='/home'>
         <div className='nav-group'>
-          <span><FaSearch className='icons'/></span>
-          <li className="nav_items ">
-            <span><NavLink to='/buscar'> Buscar </NavLink></span>
-          </li>
-        </div>
-          
-        <div className='nav-group'>
-          <span><FaComment className='icons'/></span>
-          <li className="nav_items ">
-          <span><NavLink to='/comentarios'> Comentarios </NavLink></span>
-          </li>
-        </div>
+            <span><AiFillHome className='icons'/></span>
+            <li className="nav_items ">
+            <span> Inicio </span>
+            </li>
+          </div>
+        </NavLink>
 
+        <NavLink to='/buscar'>
+          <div className='nav-group'>
+            <span><FaSearch className='icons'/></span>
+            <li className="nav_items ">
+              <span> Buscar</span>
+            </li>
+          </div>
+        </NavLink>
+
+        <NavLink to='/comentarios'>
+          <div className='nav-group'>
+            <span><FaComment className='icons'/></span>
+            <li className="nav_items ">
+            <span> Comentarios </span>
+            </li>
+          </div>
+        </NavLink>
+        
     </ul>
 </aside>
   )
