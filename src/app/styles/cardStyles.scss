@@ -81,7 +81,6 @@
     width: 300px;
     height: 300px;
     margin: 80px auto;
-    padding-top: 20%;
     overflow: hidden;
     font-size: 14px;
     background-color: white;
@@ -100,7 +99,7 @@
     h3 {
       @include absolute(40%, 0, auto, 0);
       z-index: 10;
-      color: white;
+      color: rgba(0, 0, 0, 0.623);
       font-family: Oswald;
       line-height: 1em;
       text-transform: uppercase;
@@ -108,7 +107,7 @@
       transition: transform 1s cubic-bezier(0.785, 0.135, 0.150, 0.860);
     }
     h3 {
-      font-size: 2em;
+      font-size: 20px;
       line-height: 1em;
       letter-spacing: .04em;
       &:after {
@@ -127,7 +126,8 @@
       @include absolute(55%, 0, auto, 0);
       z-index: 12;
       padding: 0 30px;
-      color: white;
+      font-size: 18px;
+      color: rgba(0, 0, 0, 0.623);;
       font-family: Source Code Pro;
       line-height: 1.2em;
       text-align: center;
