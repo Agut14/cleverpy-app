@@ -55,7 +55,7 @@ export const EditPage = () => {
                   onChange={(event) => onHandleChange(event.target) } />
               </fieldset>
               <div className="edit-page-buttons">
-                  { isDisabled ? <button>Editar</button> : <button onClick={ (event) => updatePostsFromHook(event, post?.id, formData) }>Guardar</button>}
+                  { isDisabled ? <button>Editar</button> : <button onClick={ (event) => updatePostsFromHook(event, post?.id, JSON.stringify(formData)) }>Guardar</button>}
                   <button onClick={ (event)=> deletePost(event)}>Borrar</button>
               </div>
 

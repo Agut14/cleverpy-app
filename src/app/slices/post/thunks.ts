@@ -10,7 +10,7 @@ const getPostFromApi = async( dispatch: AppDispatch ) => {
 
 }
 
-const updatePostFromApi = async( dispatch: AppDispatch, id?: number, data?: post ) => {
+const updatePostFromApi = async( dispatch: AppDispatch, id?: number, data?: string ) => {
     const responseUpdate = await postApi.put(`posts/${id}`, data);
     if(responseUpdate.data.id == String(id)){
         getPostFromApi( dispatch );
@@ -29,7 +29,7 @@ export const getPosts = () => {
 
 
 
-export const updatePosts = ( id?: number, data?: post ) => {
+export const updatePosts = ( id?: number, data?: string ) => {
     return async (dispatch: AppDispatch, getState: () => RootState) => {
         dispatch( setLoadingPosts() );
         updatePostFromApi( dispatch, id, data );

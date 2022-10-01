@@ -23,7 +23,7 @@ export const usePosts = () => {
       )
     }
 
-    const updatePostsFromHook = (event: React.FormEvent, id?: number, data?: post) => {
+    const updatePostsFromHook = (event: React.FormEvent, id?: number, data?: string) => {
       event?.preventDefault();
       dispatch( updatePosts( id ) );
     }
