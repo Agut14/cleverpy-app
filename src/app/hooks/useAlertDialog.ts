@@ -1,6 +1,4 @@
-import { useEffect, useState } from "react";
-import { useAppDispatch } from "../../hooks";
-import { getUsers } from "../slices/user/thunk";
+import { useState } from "react";
 import { usePosts } from "./usePosts";
 
 export const useAlertDialog = () => {

@@ -87,6 +87,7 @@
     border-radius: 15px;
     box-shadow: 0 0 1px rgba(#222, .5);
     transition: box-shadow 1s;
+    background-color: whitesmoke
   }
   
   .card-title, .card-body {
@@ -169,6 +170,7 @@
       transition: transform 1s cubic-bezier(0.785, 0.135, 0.150, 0.860);
       margin-top: 150px;
       cursor:pointer;
+      background-color: white;
     }
     
   }

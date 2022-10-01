@@ -38,6 +38,7 @@
     transition: box-shadow 0.3s ease-in-out;
 	position: fixed;
 	z-index: 100;
+	background-color: whitesmoke;
 }
 
 .header:hover {

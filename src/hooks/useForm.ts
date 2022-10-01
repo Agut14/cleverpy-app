@@ -23,8 +23,8 @@ export const useForm = (initialForm: formValues = {} ) => {
         setIsDisabled( !isDisabled );
     }
 
-    const resetData = ( event: React.FormEvent ) => {
-        event.preventDefault();
+    const resetData = ( event?: React.FormEvent ) => {
+        event?.preventDefault();
         setFormState( initialForm );
         setIsErrorState( false );
     };
