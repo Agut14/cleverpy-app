@@ -1,7 +1,6 @@
 import { Route, Routes } from "react-router-dom"
 import { AboutPage } from "../app/pages/AboutPage"
 import { BuscarPage } from "../app/pages/BuscarPage"
-import { ComentariosPage } from "../app/pages/ComentariosPage"
 import { HomePage } from "../app/pages/HomePage"
 import { NavBar } from '../ui/components/navbar/NavBar';
 import { SideBar } from "../ui/components/sidebar/SideBar"
@@ -18,8 +17,7 @@ export const InnerRoutes = () => {
             <Route path='home' element={<HomePage />}/>
             <Route path='about' element={<AboutPage />}/>
             <Route path='buscar' element={<BuscarPage />}/>
-            <Route path='comentarios' element={<ComentariosPage />}/>
-            <Route path='home/edit/:id' element={<EditPage />}/>
+            <Route path='edit/:id' element={<EditPage />}/>
 
             <Route path='/' element={<HomePage />}/>
         </Routes>

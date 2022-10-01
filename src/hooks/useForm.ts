@@ -6,6 +6,7 @@ export const useForm = (initialForm: formValues = {} ) => {
     const [ isErrorState, setIsErrorState ] = useState( false );
 
     const { body, username, title } = formState;
+    const [ isDisabled, setIsDisabled ] = useState( true );
 
     const onHandleChange = (target: HTMLInputElement | HTMLTextAreaElement) => {
         const { name, value } = target;
@@ -16,6 +17,11 @@ export const useForm = (initialForm: formValues = {} ) => {
             }
         )
     };
+
+    const toggleForm = (event: React.FormEvent) => {
+        event.preventDefault();
+        setIsDisabled( !isDisabled );
+    }
 
     const resetData = ( event: React.FormEvent ) => {
         event.preventDefault();
@@ -37,6 +43,8 @@ export const useForm = (initialForm: formValues = {} ) => {
     onHandleChange,
     resetData,
     isErrorState,
-    sendData
+    sendData,
+    toggleForm,
+    isDisabled
   }
 }

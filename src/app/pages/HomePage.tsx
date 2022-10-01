@@ -1,7 +1,7 @@
 import '../styles/cardStyles.scss'
 import { usePosts } from '../hooks/usePosts';
 import { useUsers } from '../hooks/useUsers';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 
 export const HomePage = () => {
@@ -26,7 +26,7 @@ export const HomePage = () => {
           </div>
           <div className='card-body'>
              <p>{ post.body }</p>
-             <Link to={`edit/${post.id}`}><button className='edit'>Editar</button></Link>
+             <NavLink to={`/edit/${post.id}`}><button className='edit'>Editar</button></NavLink>
           </div>  
           </div>
       ))} 

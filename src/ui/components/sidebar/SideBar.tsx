@@ -26,15 +26,6 @@ export const SideBar = () => {
             </li>
           </div>
         </NavLink>
-
-        <NavLink to='/comentarios'>
-          <div className='nav-group'>
-            <span><FaComment className='icons'/></span>
-            <li className="nav_items ">
-            <span> Comentarios </span>
-            </li>
-          </div>
-        </NavLink>
         
     </ul>
 </aside>

@@ -3,7 +3,6 @@ import { AlertDialogProps } from '../../interfaces/alertDialog';
 
 export const AlertDialog = ( {open, handleClose, handleCloseDelete}: AlertDialogProps) => {
 
-
   return (
     <Dialog
           open={open}

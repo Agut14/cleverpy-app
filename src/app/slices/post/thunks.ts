@@ -33,7 +33,6 @@ export const updatePosts = ( id?: number, data?: string ) => {
     return async (dispatch: AppDispatch, getState: () => RootState) => {
         dispatch( setLoadingPosts() );
         updatePostFromApi( dispatch, id, data );
-        getPostFromApi( dispatch );
     }
     
 }
