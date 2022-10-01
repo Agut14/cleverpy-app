@@ -1,10 +1,11 @@
 import { useState } from 'react';
-import { usePosts } from './usePosts';
+import { useNavigate } from 'react-router-dom';
 
 
 export const useDialog = () => {
 
     const [open, setIsOpen ] = useState(false);
+    const navigate = useNavigate();
 
     const openDialog = ( open: boolean, event: React.FormEvent ) => {
       event.preventDefault();
@@ -18,6 +19,9 @@ export const useDialog = () => {
     const handleCloseDelete = (fn: () => void) => {
         setIsOpen( !open );
         fn();
+        navigate('/', {
+          replace: true,
+        })
     };
 
 
