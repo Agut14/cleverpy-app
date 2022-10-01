@@ -5,6 +5,7 @@ import { ComentariosPage } from "../app/pages/ComentariosPage"
 import { HomePage } from "../app/pages/HomePage"
 import { NavBar } from '../ui/components/navbar/NavBar';
 import { SideBar } from "../ui/components/sidebar/SideBar"
+import { EditPage } from '../app/pages/EditPage';
 
 export const InnerRoutes = () => {
     return (
@@ -12,12 +13,13 @@ export const InnerRoutes = () => {
 
         <NavBar />
         <SideBar />
-
+        
         <Routes>
             <Route path='home' element={<HomePage />}/>
             <Route path='about' element={<AboutPage />}/>
             <Route path='buscar' element={<BuscarPage />}/>
             <Route path='comentarios' element={<ComentariosPage />}/>
+            <Route path='home/edit/:id' element={<EditPage />}/>
 
             <Route path='/' element={<HomePage />}/>
         </Routes>

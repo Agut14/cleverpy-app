@@ -1,22 +1,18 @@
-import { useAppDispatch } from '../../hooks/index';
-import { useSelector } from 'react-redux';
-import { RootState } from '../../store/store';
-import { useEffect } from 'react';
-import { getPosts } from '../slices/post/thunks';
 import '../styles/cardStyles.scss'
-import { getUsers } from '../slices/user/thunk';
 import { usePosts } from '../hooks/usePosts';
 import { useUsers } from '../hooks/useUsers';
+import { Link } from 'react-router-dom';
 
 
 export const HomePage = () => {
 
-  const dispatch = useAppDispatch();
   const { posts, isLoading } = usePosts();
   const { users, isLoadingUsers } = useUsers();
+  
 
+  
   return (
-    <>
+    
     <div className='home-content'>
       {posts.map( post => (
         <div key={post.id} className='card'>
@@ -30,14 +26,13 @@ export const HomePage = () => {
           </div>
           <div className='card-body'>
              <p>{ post.body }</p>
-              <button className='edit'>Editar</button>
-              <button className='eliminate'>Eliminar</button>
+             <Link to={`edit/${post.id}`}><button className='edit'>Editar</button></Link>
+          </div>  
           </div>
-        </div>
-      ))}
-      
+      ))} 
     </div>
-    </>
+
+    
     
   )
 }

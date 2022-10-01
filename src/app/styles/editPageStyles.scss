@@ -1,0 +1,34 @@
+.edit-page-content {
+    padding-top: 130px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    width: 95%;
+    height: 110vh;
+}
+
+.edit-form-fields {
+    display: block;
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 30px;
+}
+
+.edit-page-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.edit-page-buttons button {
+    width: 200px;
+    margin-top: 10px;
+}
+
+.edit-form-fields textarea {
+    width: 400px;
+    height: 130px;
+    overflow:visible;
+    border: 0;
+    padding: 6px 0 2px 8px;
+  
+}

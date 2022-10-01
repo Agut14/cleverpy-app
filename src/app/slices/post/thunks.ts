@@ -1,6 +1,7 @@
 import { AppDispatch, RootState } from '../../../store/store';
 import { postApi } from '../../../api/postApi';
-import { setLoadingPosts, setPosts } from './postSlice';
+import { setLoadingPosts, setPosts, stopLoadingPost } from './postSlice';
+import { post } from '../../../interfaces/postInterface';
 
 
 const getPostFromApi = async( dispatch: AppDispatch ) => {
@@ -9,10 +10,29 @@ const getPostFromApi = async( dispatch: AppDispatch ) => {
 
 }
 
-export const getPosts = ( page: number = 0 ) => {
+const updatePostFromApi = async( dispatch: AppDispatch, id?: number, data?: post ) => {
+    const responseUpdate = await postApi.put(`posts/${id}`, data);
+    if(responseUpdate.data.id == String(id)){
+        getPostFromApi( dispatch );
+    }
+    dispatch( stopLoadingPost() );
+}
+
+
+
+export const getPosts = () => {
     return async (dispatch: AppDispatch, getState: () => RootState) => {
         dispatch( setLoadingPosts() );
-        
+        getPostFromApi( dispatch );
+    }
+}
+
+
+
+export const updatePosts = ( id?: number, data?: post ) => {
+    return async (dispatch: AppDispatch, getState: () => RootState) => {
+        dispatch( setLoadingPosts() );
+        updatePostFromApi( dispatch, id, data );
         getPostFromApi( dispatch );
     }
     

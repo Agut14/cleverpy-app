@@ -13,12 +13,14 @@ const initialPostState: postResponse = {
         setLoadingPosts: ( state ) => {
           state.isLoading = true;
         },
+        stopLoadingPost: ( state ) => {
+          state.isLoading = false;
+        },
         setPosts: ( state, action: PayloadAction<postResponse>) => {
           state.posts = action.payload.posts;
           state.isLoading = action.payload.isLoading;
-        }
-          
+        },
      }
 });
 
-export const { setPosts, setLoadingPosts } = postSlice.actions;
+export const { setPosts, setLoadingPosts, stopLoadingPost } = postSlice.actions;

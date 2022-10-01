@@ -167,27 +167,10 @@
       border: none;
       transform: translateX(100%) translateY(-50%);
       transition: transform 1s cubic-bezier(0.785, 0.135, 0.150, 0.860);
-      margin-top: 120px;
-      cursor:pointer;
-    }
-    .eliminate {
-      @include absolute(40%, 0, auto, 0);
-      z-index: 12;
-      padding: 0 30px;
-      font-size: 18px;
-      border: none;
-      border-radius: 5px;
-      color: rgba(0, 0, 0, 0.623);;
-      font-family: Source Code Pro;
-      line-height: 1.2em;
-      text-align: center;
-      transform: translateX(100%) translateY(-50%);
-      transition: transform 1s cubic-bezier(0.785, 0.135, 0.150, 0.860);
       margin-top: 150px;
-      color: white;
-      background-color: #eb4a4ac2;
       cursor:pointer;
     }
+    
   }
   
   .card:hover {
@@ -198,7 +181,7 @@
     h3, h4 {
       transform: translateX(-100%);
     }
-    .card-body p, .edit, .eliminate {
+    .card-body p, .edit {
       transform: translateX(0) translateY(-50%);
       opacity: 1;
     }
