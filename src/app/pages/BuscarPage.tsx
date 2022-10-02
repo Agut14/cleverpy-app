@@ -1,9 +1,10 @@
 import { useForm } from '../../hooks/useForm';
 import '../styles/buscarPage.scss'
-import { useLocation, useNavigate } from 'react-router-dom';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import queryString from 'query-string';
 import { useSearch } from '../hooks/useSearch';
 import { RiDoubleQuotesL, RiDoubleQuotesR } from "react-icons/ri";
+import { FiEdit3 } from "react-icons/fi";
 
 
 export const BuscarPage = () => {
@@ -70,14 +71,16 @@ export const BuscarPage = () => {
 
       <div className='post-search'>
           <div>{ posts?.map(post => (
-            <div key={post.id} className='post-search-item'><RiDoubleQuotesL /> { post.body } <RiDoubleQuotesR /></div>
-          )) }</div>
+            <div key={post.id} className='post-search-item'>
+              <RiDoubleQuotesL /> { post.body } <RiDoubleQuotesR />
+              <NavLink to={`/edit/${post.id}`}>
+                <button className='edit-search-page'><FiEdit3 /></button>
+              </NavLink>
+            </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
-
-
-
-
   )
 }

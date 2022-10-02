@@ -1,8 +1,22 @@
 
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom';
 import './NavBar.css'
+import { useContext } from 'react';
+import { AuthContext } from '../../../context/AuthContext';
 
 export const NavBar = () => {
+
+  const { authState } = useContext(AuthContext);
+  const user = authState.username;
+
+  const navigate = useNavigate();
+
+  const onLogout = () => {
+    navigate('/login', {
+      replace: true
+      });
+  }
+
   return (
     <header className="header">
 		<h1 className="logo"><Link
@@ -11,12 +25,26 @@ export const NavBar = () => {
             CleverpyApp
           </Link></h1>
       <ul className="main-nav">
+
+        { user && <li>
+          <span className='navbar-span'>
+            Hola{ `, ${user}` }
+          </span>
+        </li>}
+
         <li>
           <Link
-            className='navbar-link'
+            className='nav-link'
             to='about'>
               About
-            </Link>
+          </Link>
+        </li>
+
+        <li>
+          <span className='navbar-logout'
+          onClick={ onLogout }>
+            Logout
+          </span>
         </li>
           
       </ul>
