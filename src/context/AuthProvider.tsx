@@ -3,7 +3,7 @@ import { AuthContext } from './AuthContext';
 import { authReducer, initialStateAuth } from './authReducer';
 import { AuthState } from '../interfaces/authState';
 
-interface providerProps {
+export interface providerProps {
     children: JSX.Element | JSX.Element[]
 }
 
