@@ -36,7 +36,7 @@ export const BuscarPage = () => {
     <div className="buscar-page-content">
       <div className='form-search-posts'>
         <div>
-          <h2>Buscar posts por usuario</h2>
+          <h2 className='h2-search'>Buscar posts por usuario</h2>
           <form onSubmit={(event) => onSubmitSearch(event) }>
             <input
               className='input-global' 
@@ -55,17 +55,17 @@ export const BuscarPage = () => {
       </div>
 
       <div>
-      <h2>Resultados</h2>
+      <h2 className='h2-search'>Resultados</h2>
       
       { showSearch &&
       <div>
-        <h4>Prueba a buscar por el nombre del usuario, por ejemplo Graham...</h4>
+        <h4 className='h4-search'>Prueba a buscar por el nombre del usuario, por ejemplo Graham...</h4>
       </div> 
       }
       
       { showError &&
       <div>
-        <h4>No hay resultados para <b>{ searchValue }</b></h4>
+        <h4 className='h4-search'>No hay resultados para <b>{ searchValue }</b></h4>
       </div> 
       }
 

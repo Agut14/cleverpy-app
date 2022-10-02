@@ -1,27 +1,111 @@
 .edit-page-content {
-    padding-top: 130px;
+    padding-top: 110px;
     margin: 0 auto;
     display: flex;
     justify-content: center;
+    align-items: center;
     width: 95%;
-    height: 110vh;
+    height: none; 
+    @media screen and (max-width: 400px) {
+        padding-top: none;
+        } 
+    @media screen and (max-width: 1300px) {
+        padding-top: 100px;
+        height: 120vh;
+        }
+          
 }
 
 .edit-form-fields {
     display: block;
-    display: grid;
-    grid-template-columns: auto auto;
+    width: 100%;
     gap: 30px;
+    border-radius: 10px;
+    border: none;
+    background-color: whitesmoke;
+    box-shadow: 0 0 1px var(--main-color-variety);
+    transition: box-shadow 1s;
+    @media screen and (max-width: 400px) {
+        margin-left: 30px;
+        }
 }
 
-.edit-page-buttons {
+.edit-form-fields:hover {
+    box-shadow: 0 0 20px var(--main-color-variety);
+}
+
+.grid-separator {
+    display: grid;
+    grid-template-columns: 1, 1fr;
+    padding: 10px;
+}
+
+.flex-separator {
     display: flex;
     justify-content: space-between;
+    @media screen and (max-width: 400px) {
+        margin-left: 30px;
+        }
 }
 
-.edit-page-buttons button {
+.grid-separator textarea {
+    margin-bottom: 15px;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+.title-field {
+    text-align: center;
+}
+
+.h3-edit {
+    display: block;
+    color: whitesmoke;
+    border-bottom: 1px solid whitesmoke;
+    @media screen and (max-width: 400px) {
+        display: none;
+        }
+}
+
+.flex-separator button {
     width: 200px;
     margin-top: 10px;
+    @media screen and (max-width: 400px) {
+        width: 110px;
+        }
+}
+
+.yes-button, .no-button {
+    color: white;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    height: 20px;
+}
+
+.no-button {
+    background-color: var(--action-red-color);
+}
+
+.yes-button {
+    background-color: whitesmoke;
+    color: black;
+}
+
+.edit-page-label {
+    width: 100%;
+    font-size: 20px;
+    margin-right: 15px;
+    text-align: center;
+    justify-content: center;
+    background-color: var(--action-button-color);
+    border-radius: 10px;
+    color: whitesmoke;
+    margin-bottom: 5px;
+    @media screen and (max-width: 400px) {
+        font-size: 14px;
+        width: 70%;
+        }
 }
 
 .edit-form-fields textarea {
@@ -30,5 +114,9 @@
     overflow:visible;
     border: 0;
     padding: 6px 0 2px 8px;
+    @media screen and (max-width: 400px) {
+        width: 200px;
+        justify-content: center;
+        }
   
 }

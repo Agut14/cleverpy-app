@@ -2,7 +2,7 @@
 .logo {
 	margin: 0;
 	font-size: 1.45em;
-    font-family: 'roboto';
+    font-family: 'Montserrat';
 }
 
 
@@ -19,7 +19,7 @@
 }
 
 .main-nav .nav-link, .navbar-logout, .navbar-span  {
-	color: #34495e;
+	color: var(--action-button-color);
 	font-size: 17px;
     transition: 0.3s ease-in-out;
 }
@@ -57,12 +57,12 @@
 		margin: 0 auto;
 	}
     .main-nav .nav-link:hover {
-        color: #718daa;
+        color: var(--main-color);
         font-size: 17px;
     }
 
 	.main-nav .navbar-logout:hover {
-		color:rgb(223, 70, 70);
+		color:var(--action-red-color);
 		cursor: pointer;
 		font-size: 17px;
 	}
@@ -86,7 +86,7 @@
     }
 
     .main-nav .nav-link:hover {
-        color: #718daa;
+        color: var(--main-color);
         font-size: 18px;
     }
 

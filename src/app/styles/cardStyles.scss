@@ -48,27 +48,19 @@
     }
   }
   
-  *, *:after, *:before {
-    box-sizing: border-box;
-  }
-  
-  body {
-    background-color: #ecf0f1;
-  }
-
   .home-content {
     padding-top: 120px;
     width: 95%;
     display: grid;
     grid-template-columns: repeat( 1, 1fr);
     gap: 10px;
-    @media screen and (min-width: 300px) {
+    @media screen and (min-width: 400px) {
       grid-template-columns: repeat( 1, 1fr);
       }
-      @media screen and (min-width: 500px) {
+    @media screen and (min-width: 700px) {
         grid-template-columns: repeat( 2, 1fr);
       }
-    @media screen and (min-width: 769px) {
+    @media screen and (min-width: 900px) {
       grid-template-columns: repeat( 3, 1fr);
       }
     @media screen and (min-width: 1300px) {
@@ -83,11 +75,16 @@
     margin: 30px auto;
     overflow: hidden;
     font-size: 14px;
-    background-color: white;
     border-radius: 15px;
-    box-shadow: 0 0 1px rgba(#222, .5);
+    box-shadow: 0 0 1px var(--main-color-variety);
     transition: box-shadow 1s;
-    background-color: whitesmoke
+    background-color: whitesmoke;
+    @media screen and (min-width: 370px) {
+      width: 240px;
+      }
+    @media screen and (min-width: 500px) {
+      width: 300px;
+      }
   }
   
   .card-title, .card-body {
@@ -128,7 +125,7 @@
         width: 50%;
         height: 1px;
         margin: 2px auto;
-        background-color: white;
+        background-color: whitesmoke;
       }
     }
     h4 {
@@ -161,7 +158,7 @@
       padding: 0 30px;
       font-size: 18px;
       border-radius: 5px;
-      color: rgba(0, 0, 0, 0.623);;
+      color: whitesmoke;
       font-family: Source Code Pro;
       line-height: 1.2em;
       text-align: center;
@@ -170,13 +167,13 @@
       transition: transform 1s cubic-bezier(0.785, 0.135, 0.150, 0.860);
       margin-top: 150px;
       cursor:pointer;
-      background-color: white;
+      background-color: var(--action-button-color);
     }
     
   }
   
   .card:hover {
-    box-shadow: 0 0 20px rgba(#222, .3);
+    box-shadow: 0 0 20px var(--main-color-variety);
     .card-title h3:before {
       background-color: rgba(#2c3e50, .8);
     }

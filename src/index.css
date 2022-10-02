@@ -1,3 +1,16 @@
+:root {
+	/*Main colors*/
+	--main-color: #00d6b7;
+	--main-color-variety: #35c3c1;
+	/*Button colors*/
+	--action-button-color: #2f3a5cdc;
+	--action-red-color: rgb(223, 70, 70);
+	/*UI colors*/
+	--sidebar-color: #2b2b2be5;
+	--background-color-right: #897e79;
+	--background-color-left: #242e4dbd;
+
+  }
 
 * {
 	box-sizing: border-box;
@@ -6,6 +19,9 @@ body {
 	font-family: 'Montserrat', sans-serif;
 	line-height: 1.6;
 	margin: 0;
+	background: rgb(137,126,121);
+	background: linear-gradient(90deg, rgba(137,126,121,1) 0%, rgba(47,58,92,1) 100%);
+	
 }
 ul {
   margin: 0;

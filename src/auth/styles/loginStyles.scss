@@ -1,14 +1,9 @@
-$left-color:  #242e4d;
+$left-color:  #242e4dbd;
 $right-color: #897e79;
-$green-dark:  #35c3c1;
-$green-light: #00d6b7;
+$green-dark:  var(--main-color);
+$green-light: var(--main-color-variety);
 $gray:        #8f8f8f;
 $gray-light:  #f5f6f8;
-
-* {
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-}
 
 .login-container, .login-subcontainer { height: 100%; }
 .login-subcontainer {

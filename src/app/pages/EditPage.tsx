@@ -40,26 +40,31 @@ export const EditPage = () => {
     return (
       <div className="edit-page-content">
           <div className="edit-form">
-            <h3>Editar post { id }</h3>
+            <h3 className="h3-edit">Editar post { id }</h3>
             
             <form action="#">
               <fieldset className="edit-form-fields" disabled={isDisabled}>
-                <legend>Editar post con id { post?.id }</legend>
-                <label className="edit-page-label" htmlFor="body">Title</label>
-                <textarea 
-                  name="title"
-                  value={ title } 
-                  onChange={(event) => onHandleChange(event.target) }/>
-                <label className="edit-page-label" htmlFor="body">Body</label>
-                <textarea 
-                  name="body"
-                  value={ body }
-                  onChange={(event) => onHandleChange(event.target) } />
+                <div className="color-field"></div>
+                <div className="grid-separator">
+                  <label className="edit-page-label" htmlFor="body">Título</label>
+                  <textarea
+                    className="title-field" 
+                    name="title"
+                    value={ title } 
+                    onChange={(event) => onHandleChange(event.target) }/>
+                </div>
+                <div className="grid-separator">
+                  <label className="edit-page-label" htmlFor="body">Texto</label>
+                  <textarea 
+                    name="body"
+                    value={ body }
+                    onChange={(event) => onHandleChange(event.target) } />
+                </div>
               </fieldset>
-              <div className="edit-page-buttons">
-                  { isDisabled ? <button onClick={ (event) => toggleForm(event) }>Editar</button> 
-                  : <button onClick={ (event) => updatePostForm(event, post?.id, JSON.stringify(formData)) }>Guardar</button>}
-                  <button onClick={ (event) => openDialog(true, event) }>Borrar</button>
+              <div className="flex-separator">
+                  { isDisabled ? <button className="yes-button" onClick={ (event) => toggleForm(event) }>Editar</button> 
+                  : <button className="yes-button" onClick={ (event) => updatePostForm(event, post?.id, JSON.stringify(formData)) }>Guardar</button>}
+                  <button className="no-button" onClick={ (event) => openDialog(true, event) }>Borrar</button>
               </div>
             </form>
           </div>
