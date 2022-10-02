@@ -4,7 +4,8 @@ import { AuthState } from "../interfaces/authState";
 
 type AuthContextProps = {
     authState: AuthState,
-    authLogin: ( username: string ) => void
+    authLogin: ( username: string ) => void,
+    authLogout: () => void
 }
 
 

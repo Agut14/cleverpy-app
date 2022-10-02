@@ -17,10 +17,12 @@ export const LoginPage = () => {
 
   const onLoginUser = (event: React.FormEvent, username: string = '') => {
     event.preventDefault();
-    authLogin( username );
+    if( username.trim().length > 0) {
+      authLogin( username );
     navigate('/', {
       replace: true
     });
+    }
   }
 
   return (
