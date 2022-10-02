@@ -6,17 +6,15 @@
     margin: 0 auto;
     width: 95%;
     height: 100vh;
+    @media screen and (max-width: 768px) {
+      display: block;
+      justify-content: center;
+
+      }
 }
 
 .form-search-posts {
     display: flex;
-    justify-content: center;
-}
-
-.post-search {
-    display: grid;
-    grid-template-columns: 1 1fr;
-    gap: 20px;
     justify-content: center;
 }
 
@@ -26,6 +24,16 @@
     border: 1px solid whitesmoke;
     margin: 5px;
     border-radius: 10px;
+}
+
+.search-results {
+  width: 100%;
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    justify-content: center;
+    padding-left: 100px;
+    padding-top: 80px;
+    }
 }
 
 .h2-search {

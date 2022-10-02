@@ -54,7 +54,7 @@ export const BuscarPage = () => {
         </div>
       </div>
 
-      <div>
+      <div className='search-results'>
       <h2 className='h2-search'>Resultados</h2>
       
       { showSearch &&
