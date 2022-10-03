@@ -2,8 +2,6 @@ import '../styles/cardStyles.scss'
 import { usePosts } from '../hooks/usePosts';
 import { useUsers } from '../hooks/useUsers';
 import { NavLink } from 'react-router-dom';
-import { Alert, Snackbar } from '@mui/material';
-import { useSnackbar } from '../../hooks/useSnackbar';
 import { ErrorMessage } from '../components/ErrorMessage';
 
 

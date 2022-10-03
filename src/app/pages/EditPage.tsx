@@ -10,11 +10,9 @@ import { Alert, CircularProgress, Snackbar } from "@mui/material";
 import { useSnackbar } from '../../hooks/useSnackbar';
 
 
-
 export const EditPage = () => {
 
   const { id } = useParams();
-  const navigate = useNavigate();
 
   const { getPostById, updatePostsFromHook, deletePostsFromHook, isLoading, isError, errorMsg, postDeleted } = usePosts();
 
@@ -37,16 +35,16 @@ export const EditPage = () => {
   const deletePostForm = (id: number) => {
     handleClose();
     deletePostsFromHook( id, handleClickSnack);
-    if(!isError && !isLoading) 
-    setTimeout( () =>
-        navigate('/', {
-            replace: true,
-    }), 2000)
   }
   const viewForm = !isLoading && !(postDeleted === post?.id);
   const snackType = !isError ? 'success' : 'error';
 
   if( !post ){
+    return <Navigate to={'/'} />
+  }
+
+  //mock para saber si el post ha sido borrado, devuelve a la página de inicio
+  if( postDeleted === post.id ){
     return <Navigate to={'/'} />
   }
 
