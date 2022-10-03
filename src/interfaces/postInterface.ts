@@ -1,13 +1,13 @@
 export interface post {
     userId?: number,
-    id: number,
+    id?: number,
     title?: string,
     body?: string
 }
 
 export interface postResponse {
     posts: post[],
-    post?: post,
+    post: post,
     isLoading: boolean,
     isError?: boolean,
     errorMsg?: string,

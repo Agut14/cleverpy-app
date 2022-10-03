@@ -3,59 +3,71 @@ import { usePosts } from '../hooks/usePosts';
 import '../styles/editPageStyles.scss'
 import { useForm } from '../../hooks/useForm';
 import { post } from "../../interfaces/postInterface";
-import { useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
 import { AlertDialog } from '../components/AlertDialog';
 import { useDialog } from '../hooks/useDialog';
 import { Alert, CircularProgress, Snackbar } from "@mui/material";
 import { useSnackbar } from '../../hooks/useSnackbar';
+import { useAppDispatch } from '../../hooks';
+import { getPostsById } from '../slices/post/thunks';
 
 
 export const EditPage = () => {
 
+  const dispatch = useAppDispatch();
+  const { updatePostsFromHook, deletePostsFromHook, isLoading, isError, errorMsg, postDeleted, post } = usePosts();
+  const { isDisabled, toggleForm, body, title, onHandleChange, setFormData, resetData } = useForm({
+    body: post.body,
+    title: post.title
+   });
+
+  useEffect(() => {
+    dispatch ( getPostsById( Number(id) ) );
+  }, [ ]);
+
+  useEffect(() => {
+    setFormData();
+   }, [ post ]);
+
   const { id } = useParams();
 
-  const { getPostById, updatePostsFromHook, deletePostsFromHook, isLoading, isError, errorMsg, postDeleted } = usePosts();
-
   const { open, openDialog, handleClose } = useDialog();
-
-  const post = useMemo(() => getPostById( id ), [ id ]);
-  
-  const { isDisabled, toggleForm, body, title, onHandleChange } = useForm({
-    body: post?.body,
-    title: post?.title
-   });
 
   const { openSnack, msgSnack, handleClickSnack, handleCloseSnack } = useSnackbar(); 
 
   const updatePostForm = (event: React.FormEvent, id: number | undefined, data: post | undefined) => {
     updatePostsFromHook(event, id, data, handleClickSnack);
-    toggleForm(event)
+    toggleForm(event);
+    if(isError){
+      resetData();
+    }
   }
 
-  const deletePostForm = (id: number) => {
+  const deletePostForm = (id?: number) => {
     handleClose();
     deletePostsFromHook( id, handleClickSnack);
   }
-  const viewForm = !isLoading && !(postDeleted === post?.id);
-  const snackType = !isError ? 'success' : 'error';
 
-  if( !post ){
+  const formData: post = {
+    userId: post?.userId,
+    id: post.id,
+    title: title,
+    body: body
+   }
+  const snackType = !isError ? 'success' : 'error';
+  const setView = !isLoading || !(postDeleted === post.id);
+
+  if(!post) {
     return <Navigate to={'/'} />
   }
 
   //mock para saber si el post ha sido borrado, devuelve a la página de inicio
-  if( postDeleted === post.id ){
+  if( postDeleted === post?.id ){
     return <Navigate to={'/'} />
   }
 
-   const formData: post = {
-    userId: post?.userId,
-    id: post?.id,
-    title: title,
-    body: body
-   }
-    
-   if(viewForm){
+   
+   if(!isLoading){
     return (
       <div className="edit-page-content">
           <div className="edit-form">
@@ -87,7 +99,7 @@ export const EditPage = () => {
               </div>
             </form>
           </div>
-          <AlertDialog open={open} handleClose={handleClose} handleCloseDelete={() => deletePostForm(post.id)} />
+          <AlertDialog open={open} handleClose={handleClose} handleCloseDelete={() => deletePostForm(post?.id)} />
           <Snackbar open= {openSnack} autoHideDuration={4000} onClose={(event) =>handleCloseSnack(event)}>
             <Alert onClose={handleCloseSnack} severity={snackType} sx={{ width: '100%' }}>
               { isError && errorMsg }

@@ -1,12 +1,18 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { formValues } from '../interfaces/formValues';
+
+
 export const useForm = (initialForm: formValues = {} ) => {
 
     const [formState, setFormState] = useState( initialForm ); 
     const [ isErrorState, setIsErrorState ] = useState( false );
-
     const { body, username, title } = formState;
     const [ isDisabled, setIsDisabled ] = useState( true );
+
+
+    const setFormData = () => {
+        setFormState(initialForm);
+    }
 
     const onHandleChange = (target: HTMLInputElement | HTMLTextAreaElement) => {
         const { name, value } = target;
@@ -40,6 +46,7 @@ export const useForm = (initialForm: formValues = {} ) => {
 
   return {
     ...formState,
+    setFormData,
     onHandleChange,
     resetData,
     isErrorState,

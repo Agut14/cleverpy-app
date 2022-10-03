@@ -3,14 +3,21 @@ import { usePosts } from '../hooks/usePosts';
 import { useUsers } from '../hooks/useUsers';
 import { NavLink } from 'react-router-dom';
 import { ErrorMessage } from '../components/ErrorMessage';
+import { useAppDispatch } from '../../hooks';
+import { useEffect } from 'react';
+import { getPosts } from '../slices/post/thunks';
 
 
 export const HomePage = () => {
 
+
+  const dispatch = useAppDispatch();
   const { posts, isLoading, isError, errorMsg } = usePosts();
   const { users, isLoadingUsers } = useUsers();
-  
 
+  useEffect(() => {
+    dispatch(getPosts());
+  }, [ ]);
   
   return (
     
