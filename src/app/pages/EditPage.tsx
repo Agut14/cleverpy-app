@@ -16,7 +16,7 @@ export const EditPage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  const { getPostById, updatePostsFromHook, deletePostsFromHook, isLoading, isError, errorMsg } = usePosts();
+  const { getPostById, updatePostsFromHook, deletePostsFromHook, isLoading, isError, errorMsg, postDeleted } = usePosts();
 
   const { open, openDialog, handleClose } = useDialog();
 
@@ -34,7 +34,7 @@ export const EditPage = () => {
     toggleForm(event)
   }
 
-  const deletePostForm = (id: number | undefined) => {
+  const deletePostForm = (id: number) => {
     handleClose();
     deletePostsFromHook( id, handleClickSnack);
     if(!isError && !isLoading) 
@@ -43,7 +43,7 @@ export const EditPage = () => {
             replace: true,
     }), 2000)
   }
-
+  const viewForm = !isLoading && !(postDeleted === post?.id);
   const snackType = !isError ? 'success' : 'error';
 
   if( !post ){
@@ -57,7 +57,7 @@ export const EditPage = () => {
     body: body
    }
     
-   if(!isLoading){
+   if(viewForm){
     return (
       <div className="edit-page-content">
           <div className="edit-form">
@@ -97,12 +97,12 @@ export const EditPage = () => {
             </Alert>
           </Snackbar>
       </div>
-)
-   }else {
-    return (
-      <div className="edit-page-content">
-      <CircularProgress />
-    </div>
+    )
+    }else {
+      return (
+        <div className="edit-page-content">
+        <CircularProgress />
+      </div>
     )
    }
     

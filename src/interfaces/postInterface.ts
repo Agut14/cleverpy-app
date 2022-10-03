@@ -1,6 +1,6 @@
 export interface post {
     userId?: number,
-    id?: number,
+    id: number,
     title?: string,
     body?: string
 }
@@ -10,5 +10,6 @@ export interface postResponse {
     post?: post,
     isLoading: boolean,
     isError?: boolean,
-    errorMsg?: string
+    errorMsg?: string,
+    postDeleted?: number
 }

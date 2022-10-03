@@ -29,8 +29,11 @@ const initialPostState: postResponse = {
         },
         setNoError:( state ) => {
           state.isError = false;
+        },
+        setPostDeleted: (state, action: PayloadAction<number>) => {
+          state.postDeleted = action.payload;
         }
      }
 });
 
-export const { setPosts, setLoadingPosts, stopLoadingPost, setIsError, setNoError } = postSlice.actions;
+export const { setPosts, setLoadingPosts, stopLoadingPost, setIsError, setNoError, setPostDeleted } = postSlice.actions;

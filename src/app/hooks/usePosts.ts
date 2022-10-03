@@ -11,7 +11,7 @@ import { getPosts, updatePosts, deletePosts } from '../slices/post/thunks';
 export const usePosts = () => {
 
     const dispatch = useAppDispatch();
-    const { posts, isLoading, isError, errorMsg } = useSelector( (state: RootState ) => state.posts);
+    const { posts, isLoading, isError, errorMsg, postDeleted } = useSelector( (state: RootState ) => state.posts);
     const { toggleForm } = useForm();
     const navigate = useNavigate();
 
@@ -20,7 +20,7 @@ export const usePosts = () => {
     }, [ ]);
     
 
-    const deletePostsFromHook = (id?: number, openSnack?: ( msg: string ) => void) => {
+    const deletePostsFromHook = (id: number, openSnack?: ( msg: string ) => void) => {
       dispatch( deletePosts( id ) ).then(() =>{
         if(!isError){
           if(openSnack) openSnack( 'Post borrado correctamente!' );
@@ -43,5 +43,5 @@ export const usePosts = () => {
         }
     }
 
-  return { posts, isError, errorMsg, isLoading, deletePostsFromHook, getPostById, updatePostsFromHook };
+  return { posts, isError, postDeleted, errorMsg, isLoading, deletePostsFromHook, getPostById, updatePostsFromHook };
 }

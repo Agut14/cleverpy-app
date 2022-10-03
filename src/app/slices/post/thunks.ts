@@ -1,6 +1,6 @@
 import { AppDispatch, RootState } from '../../../store/store';
 import { postApi } from '../../../api/postApi';
-import { setIsError, setLoadingPosts, setNoError, setPosts, stopLoadingPost } from './postSlice';
+import { setIsError, setLoadingPosts, setNoError, setPostDeleted, setPosts, stopLoadingPost } from './postSlice';
 import { post } from '../../../interfaces/postInterface';
 
 
@@ -8,6 +8,7 @@ const getPostFromApi = async( dispatch: AppDispatch ) => {
     await postApi.get('posts')
     .then(response => {
         dispatch( setPosts( { posts: response.data, isLoading: false }) )
+        dispatch( setPostDeleted( 0 ))
     })
     .catch(error => dispatch( setIsError(error.message)));
 }
@@ -23,9 +24,10 @@ const updatePostFromApi = async( dispatch: AppDispatch, id?: number, data?: post
     dispatch( stopLoadingPost() );
 }
 
-const deletePostFromApi = async( dispatch: AppDispatch, id?: number) => {
+const deletePostFromApi = async( dispatch: AppDispatch, id: number) => {
     await postApi.delete(`posts/${id}`)
     .then( response => {
+        dispatch( setPostDeleted( id ))
         dispatch( setNoError() )
     })
     .catch(error => {
@@ -50,7 +52,7 @@ export const updatePosts = ( id?: number, data?: post ) => {
     
 }
 
-export const deletePosts = ( id?: number ) => {
+export const deletePosts = ( id: number ) => {
     return async (dispatch: AppDispatch, getState: () => RootState) => {
         dispatch(setLoadingPosts());
         deletePostFromApi( dispatch, id);
