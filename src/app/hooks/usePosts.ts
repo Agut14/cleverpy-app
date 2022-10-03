@@ -24,12 +24,6 @@ export const usePosts = () => {
       dispatch( deletePosts( id ) ).then(() =>{
         if(!isError){
           if(openSnack) openSnack( 'Post borrado correctamente!' );
-        setTimeout( () =>
-          navigate('/', {
-            replace: true,
-          }), 2000)
-        }else {
-          if(openSnack) openSnack( errorMsg ?? 'Ha habido un error' );
         }
       });
     }
@@ -46,8 +40,6 @@ export const usePosts = () => {
       dispatch( updatePosts( id, data ) )
         if(!isError){
           if(openSnack) openSnack( 'Post editado correctamente!' );
-        }else {
-          if(openSnack) openSnack( errorMsg ?? 'Ha habido un error' );
         }
     }
 

@@ -35,14 +35,6 @@ export const NavBar = () => {
         </li>}
 
         <li>
-          <Link
-            className='nav-link'
-            to='about'>
-              About
-          </Link>
-        </li>
-
-        <li>
           <span className='navbar-logout'
           onClick={ onLogout }>
             Logout

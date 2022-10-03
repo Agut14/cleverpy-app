@@ -1,6 +1,6 @@
 import { AppDispatch, RootState } from '../../../store/store';
 import { postApi } from '../../../api/postApi';
-import { setIsError, setLoadingPosts, setPosts, stopLoadingPost } from './postSlice';
+import { setIsError, setLoadingPosts, setNoError, setPosts, stopLoadingPost } from './postSlice';
 import { post } from '../../../interfaces/postInterface';
 
 
@@ -14,6 +14,9 @@ const getPostFromApi = async( dispatch: AppDispatch ) => {
 
 const updatePostFromApi = async( dispatch: AppDispatch, id?: number, data?: post ) => {
     await postApi.put(`posts/${id}`, data)
+    .then( response =>
+        dispatch( setNoError() )
+    )
     .catch(error => {
         dispatch( setIsError(error.message));
     });
@@ -23,11 +26,10 @@ const updatePostFromApi = async( dispatch: AppDispatch, id?: number, data?: post
 const deletePostFromApi = async( dispatch: AppDispatch, id?: number) => {
     await postApi.delete(`posts/${id}`)
     .then( response => {
-        if(response.data.id == String(id)){
-        }
+        dispatch( setNoError() )
     })
     .catch(error => {
-        setIsError(error.message);
+        dispatch( setIsError(error.message) );
     })
     dispatch( stopLoadingPost() );
 }

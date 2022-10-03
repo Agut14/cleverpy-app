@@ -1,5 +1,4 @@
 import { Route, Routes } from "react-router-dom"
-import { AboutPage } from "../app/pages/AboutPage"
 import { BuscarPage } from "../app/pages/BuscarPage"
 import { HomePage } from "../app/pages/HomePage"
 import { NavBar } from '../ui/components/navbar/NavBar';
@@ -15,7 +14,6 @@ export const InnerRoutes = () => {
         
         <Routes>
             <Route path='home' element={<HomePage />}/>
-            <Route path='about' element={<AboutPage />}/>
             <Route path='buscar' element={<BuscarPage />}/>
             <Route path='edit/:id' element={<EditPage />}/>
 

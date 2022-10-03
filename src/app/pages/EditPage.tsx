@@ -1,4 +1,4 @@
-import { Navigate, useParams } from "react-router-dom"
+import { Navigate, useParams, useNavigate } from 'react-router-dom';
 import { usePosts } from '../hooks/usePosts';
 import '../styles/editPageStyles.scss'
 import { useForm } from '../../hooks/useForm';
@@ -14,8 +14,9 @@ import { useSnackbar } from '../../hooks/useSnackbar';
 export const EditPage = () => {
 
   const { id } = useParams();
+  const navigate = useNavigate();
 
-  const { getPostById, updatePostsFromHook, deletePostsFromHook, isLoading } = usePosts();
+  const { getPostById, updatePostsFromHook, deletePostsFromHook, isLoading, isError, errorMsg } = usePosts();
 
   const { open, openDialog, handleClose } = useDialog();
 
@@ -36,7 +37,14 @@ export const EditPage = () => {
   const deletePostForm = (id: number | undefined) => {
     handleClose();
     deletePostsFromHook( id, handleClickSnack);
+    if(!isError && !isLoading) 
+    setTimeout( () =>
+        navigate('/', {
+            replace: true,
+    }), 2000)
   }
+
+  const snackType = !isError ? 'success' : 'error';
 
   if( !post ){
     return <Navigate to={'/'} />
@@ -83,8 +91,9 @@ export const EditPage = () => {
           </div>
           <AlertDialog open={open} handleClose={handleClose} handleCloseDelete={() => deletePostForm(post.id)} />
           <Snackbar open= {openSnack} autoHideDuration={4000} onClose={(event) =>handleCloseSnack(event)}>
-            <Alert onClose={handleCloseSnack} severity="success" sx={{ width: '100%' }}>
-              { msgSnack }
+            <Alert onClose={handleCloseSnack} severity={snackType} sx={{ width: '100%' }}>
+              { isError && errorMsg }
+              { !isError && msgSnack}
             </Alert>
           </Snackbar>
       </div>

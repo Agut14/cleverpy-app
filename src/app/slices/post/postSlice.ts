@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { post, postResponse } from '../../../interfaces/postInterface';
+import { postResponse } from '../../../interfaces/postInterface';
 
 const initialPostState: postResponse = {
   posts: [],
@@ -26,8 +26,11 @@ const initialPostState: postResponse = {
         setIsError: (state, action: PayloadAction<string>) => {
           state.isError = true;
           state.errorMsg = action.payload;
+        },
+        setNoError:( state ) => {
+          state.isError = false;
         }
      }
 });
 
-export const { setPosts, setLoadingPosts, stopLoadingPost, setIsError } = postSlice.actions;
+export const { setPosts, setLoadingPosts, stopLoadingPost, setIsError, setNoError } = postSlice.actions;
