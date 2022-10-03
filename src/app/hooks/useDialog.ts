@@ -1,11 +1,13 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { usePosts } from './usePosts';
+import { deletePosts } from '../slices/post/thunks';
+import { useSnackbar } from '../../hooks/useSnackbar';
 
 
 export const useDialog = () => {
 
     const [open, setIsOpen ] = useState(false);
-    const navigate = useNavigate();
 
     const openDialog = ( open: boolean, event: React.FormEvent ) => {
       event.preventDefault();
@@ -16,22 +18,10 @@ export const useDialog = () => {
         setIsOpen( !open );
     };
 
-    const handleCloseDelete = (fn: () => void) => {
-        setIsOpen( !open );
-        fn();
-        setTimeout(() => {
-          navigate('/', {
-            replace: true,
-          })
-        }, 1000);
-    };
-
-
   return {
     open,
     setIsOpen,
     handleClose,
-    handleCloseDelete,
     openDialog,
   }
 }

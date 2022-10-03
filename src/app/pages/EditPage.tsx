@@ -3,7 +3,7 @@ import { usePosts } from '../hooks/usePosts';
 import '../styles/editPageStyles.scss'
 import { useForm } from '../../hooks/useForm';
 import { post } from "../../interfaces/postInterface";
-import { useMemo, useState } from 'react';
+import { useMemo } from 'react';
 import { AlertDialog } from '../components/AlertDialog';
 import { useDialog } from '../hooks/useDialog';
 import { Alert, CircularProgress, Snackbar } from "@mui/material";
@@ -15,9 +15,9 @@ export const EditPage = () => {
 
   const { id } = useParams();
 
-  const { getPostById, deletePost, updatePostsFromHook, isLoading } = usePosts();
+  const { getPostById, updatePostsFromHook, deletePostsFromHook, isLoading } = usePosts();
 
-  const { open, openDialog, handleClose, handleCloseDelete } = useDialog();
+  const { open, openDialog, handleClose } = useDialog();
 
   const post = useMemo(() => getPostById( id ), [ id ]);
   
@@ -28,10 +28,15 @@ export const EditPage = () => {
 
   const { openSnack, msgSnack, handleClickSnack, handleCloseSnack } = useSnackbar(); 
 
-   const updatePostForm = (event: React.FormEvent, id: number | undefined, data: string | undefined) => {
+  const updatePostForm = (event: React.FormEvent, id: number | undefined, data: post | undefined) => {
     updatePostsFromHook(event, id, data, handleClickSnack);
     toggleForm(event)
-   }
+  }
+
+  const deletePostForm = (id: number | undefined) => {
+    handleClose();
+    deletePostsFromHook( id, handleClickSnack);
+  }
 
   if( !post ){
     return <Navigate to={'/'} />
@@ -71,12 +76,12 @@ export const EditPage = () => {
               </fieldset>
               <div className="flex-separator">
                   { isDisabled ? <button className="yes-button" onClick={ (event) => toggleForm(event) }>Editar</button> 
-                  : <button className="yes-button" onClick={ (event) => updatePostForm(event, post?.id, JSON.stringify(formData)) }>Guardar</button>}
+                  : <button className="yes-button" onClick={ (event) => updatePostForm(event, post?.id, formData) }>Guardar</button>}
                   <button className="no-button" onClick={ (event) => openDialog(true, event) }>Borrar</button>
               </div>
             </form>
           </div>
-          <AlertDialog open={open} handleClose={handleClose} handleCloseDelete={() => handleCloseDelete(() => deletePost(handleClickSnack))} />
+          <AlertDialog open={open} handleClose={handleClose} handleCloseDelete={() => deletePostForm(post.id)} />
           <Snackbar open= {openSnack} autoHideDuration={4000} onClose={(event) =>handleCloseSnack(event)}>
             <Alert onClose={handleCloseSnack} severity="success" sx={{ width: '100%' }}>
               { msgSnack }

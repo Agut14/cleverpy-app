@@ -4,12 +4,13 @@ import { useUsers } from '../hooks/useUsers';
 import { NavLink } from 'react-router-dom';
 import { Alert, Snackbar } from '@mui/material';
 import { useSnackbar } from '../../hooks/useSnackbar';
+import { ErrorMessage } from '../components/ErrorMessage';
 
 
 export const HomePage = () => {
 
-  const { posts, isLoading } = usePosts();
-  const { users, isLoadingUsers } = useUsers(); 
+  const { posts, isLoading, isError, errorMsg } = usePosts();
+  const { users, isLoadingUsers } = useUsers();
   
 
   
@@ -31,11 +32,8 @@ export const HomePage = () => {
              <NavLink to={`/edit/${post.id}`}><button className='edit'>Editar</button></NavLink>
           </div>  
         </div>
-        
       ))} 
+      { isError && <ErrorMessage errorMsg={errorMsg}/> }
     </div>
-
-    
-    
   )
 }

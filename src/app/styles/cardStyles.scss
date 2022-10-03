@@ -185,3 +185,11 @@
       opacity: 1;
     }
   }
+
+  .error-message {
+    border: 1px solid red;
+    border-radius: 10px;
+    text-align: center;
+    background-color: whitesmoke;
+    color: red;
+  }

@@ -12,7 +12,7 @@ export const useUsers = () => {
 
     useEffect(() => {
         dispatch(getUsers());
-      }, []);
+      }, [ ]);
     
   return { users, isLoadingUsers };
 }

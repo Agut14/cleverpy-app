@@ -8,5 +8,7 @@ export interface post {
 export interface postResponse {
     posts: post[],
     post?: post,
-    isLoading: boolean
+    isLoading: boolean,
+    isError?: boolean,
+    errorMsg?: string
 }
