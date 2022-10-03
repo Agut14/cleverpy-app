@@ -2,12 +2,14 @@ import '../styles/cardStyles.scss'
 import { usePosts } from '../hooks/usePosts';
 import { useUsers } from '../hooks/useUsers';
 import { NavLink } from 'react-router-dom';
+import { Alert, Snackbar } from '@mui/material';
+import { useSnackbar } from '../../hooks/useSnackbar';
 
 
 export const HomePage = () => {
 
   const { posts, isLoading } = usePosts();
-  const { users, isLoadingUsers } = useUsers();
+  const { users, isLoadingUsers } = useUsers(); 
   
 
   
@@ -28,7 +30,8 @@ export const HomePage = () => {
              <p>{ post.body }</p>
              <NavLink to={`/edit/${post.id}`}><button className='edit'>Editar</button></NavLink>
           </div>  
-          </div>
+        </div>
+        
       ))} 
     </div>
 

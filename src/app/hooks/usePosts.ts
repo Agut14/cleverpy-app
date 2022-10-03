@@ -18,7 +18,8 @@ export const usePosts = () => {
     }, [ ]);
     
 
-    const deletePost = () => {
+    const deletePost = ( openSnack?: ( msg: string) => void ) => {
+      if(openSnack) openSnack( 'Post borrado correctamente!' )
       console.log('Post borrado con éxito');
     }
 
@@ -28,10 +29,12 @@ export const usePosts = () => {
       )
     }
 
-    const updatePostsFromHook = (event: React.FormEvent, id?: number, data?: string) => {
+    const updatePostsFromHook = (event: React.FormEvent, id?: number, data?: string, openSnack?: ( msg: string ) => void) => {
       event?.preventDefault();
       toggleForm( event );
-      dispatch( updatePosts( id ) );
+      dispatch( updatePosts( id ) ).then( res =>{
+        if(openSnack) openSnack( 'Post editado correctamente!' );
+      });
     }
 
     

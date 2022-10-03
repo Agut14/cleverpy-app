@@ -1,7 +1,6 @@
 import { AppDispatch, RootState } from '../../../store/store';
 import { postApi } from '../../../api/postApi';
 import { setLoadingPosts, setPosts, stopLoadingPost } from './postSlice';
-import { post } from '../../../interfaces/postInterface';
 
 
 const getPostFromApi = async( dispatch: AppDispatch ) => {

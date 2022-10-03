@@ -19,9 +19,11 @@ export const useDialog = () => {
     const handleCloseDelete = (fn: () => void) => {
         setIsOpen( !open );
         fn();
-        navigate('/', {
-          replace: true,
-        })
+        setTimeout(() => {
+          navigate('/', {
+            replace: true,
+          })
+        }, 1000);
     };
 
 
@@ -30,7 +32,7 @@ export const useDialog = () => {
     setIsOpen,
     handleClose,
     handleCloseDelete,
-    openDialog
+    openDialog,
   }
 }
 
