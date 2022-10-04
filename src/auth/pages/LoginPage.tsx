@@ -1,27 +1,31 @@
 import '../styles/loginStyles.scss';
 import { FaUserAlt } from "react-icons/fa";
-import { RiLockPasswordFill } from "react-icons/ri";
-import { useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../../context/AuthContext';
 import { useForm } from '../../hooks/useForm';
+import { useSnackbar } from '../../hooks/useSnackbar';
+import { Alert, Snackbar } from '@mui/material';
+import { usePosts } from '../../app/hooks/usePosts';
 
 
 export const LoginPage = () => {
 
   const { authLogin } = useContext(AuthContext)
-  const navigate = useNavigate();
-  const { username, sendData, onHandleChange } = useForm({
+  const { username, onHandleChange } = useForm({
     username: ''
   });
+  const { 
+    handleClickErrorSnack,
+    errorMsg, 
+    handleCloseErrorSnack, 
+    openErrorSnack } = useSnackbar();  
 
   const onLoginUser = (event: React.FormEvent, username: string = '') => {
     event.preventDefault();
     if( username.trim().length > 0) {
       authLogin( username );
-    navigate('/', {
-      replace: true
-    });
+    }else {
+      handleClickErrorSnack( 'El nombre de usuario debe contener por lo menos 1 carácter!' );
     }
   }
 
@@ -50,6 +54,11 @@ export const LoginPage = () => {
       </form>
       </div>
     </div>
+    <Snackbar open= {openErrorSnack} autoHideDuration={4000} onClose={(event) =>handleCloseErrorSnack(event)}>
+          <Alert onClose={handleCloseErrorSnack} severity='error' sx={{ width: '100%' }}>
+            { errorMsg }
+          </Alert>
+    </Snackbar>
     </>
     
   )

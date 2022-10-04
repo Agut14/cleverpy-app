@@ -55,7 +55,6 @@ export const EditPage = () => {
     body: body
    }
   const snackType = !isError ? 'success' : 'error';
-  const setView = !isLoading || !(postDeleted === post.id);
 
   if(!post) {
     return <Navigate to={'/'} />
