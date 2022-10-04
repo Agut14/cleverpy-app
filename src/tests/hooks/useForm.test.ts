@@ -3,14 +3,14 @@ import { useForm } from "../../hooks/useForm";
 
 export{};
 
-describe('Pruebas en el useForm', () => { 
+describe('useForm tests', () => { 
 
     const initialForm = {
         title: 'Hola Mundo',
         body: 'Gracias por la oportunidad'
     }
 
-    test('regresa el objeto por defecto', () => {
+    test('return default object', () => {
 
         const { result } = renderHook(() => useForm( initialForm ));
         console.log( result.current)
@@ -25,6 +25,5 @@ describe('Pruebas en el useForm', () => {
             toggleForm: expect.any( Function ),
             isDisabled: true
           });
- 
     })
  })
