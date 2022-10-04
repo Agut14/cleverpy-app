@@ -7,7 +7,7 @@ import { RiDoubleQuotesL, RiDoubleQuotesR } from "react-icons/ri";
 import { FiEdit3 } from "react-icons/fi";
 
 
-export const BuscarPage = () => {
+export const SearchPage = () => {
 
   const { searchText, onHandleChange, resetData } = useForm({
     searchText: ''
@@ -71,7 +71,7 @@ export const BuscarPage = () => {
 
       <div className='post-search'>
           <div>{ posts?.map(post => (
-            <div key={post.id} className='post-search-item'>
+            <div aria-label='search-container' key={post.id} className='post-search-item'>
               <RiDoubleQuotesL /> { post.body } <RiDoubleQuotesR />
               <NavLink to={`/edit/${post.id}`}>
                 <button className='edit-search-page'><FiEdit3 /></button>

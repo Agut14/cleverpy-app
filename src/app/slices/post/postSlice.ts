@@ -9,7 +9,7 @@ const initialPostState: postResponse = {
 };
 
   export const postSlice = createSlice({
-      name: 'cards',
+      name: 'posts',
       initialState: initialPostState,
       reducers: {
         setLoadingPosts: ( state ) => {
@@ -28,7 +28,6 @@ const initialPostState: postResponse = {
           state.post = action.payload;
           state.isError = false;
           state.isLoading = false;
-          
         },
         setIsError: (state, action: PayloadAction<string>) => {
           state.isError = true;

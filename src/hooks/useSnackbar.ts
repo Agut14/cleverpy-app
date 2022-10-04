@@ -8,13 +8,13 @@ export const useSnackbar = () => {
     const [errorMsg, setErrorMsg] = useState('');
 
     const handleClickSnack = ( msg:string = '') => {
-        if(msg.length == 0) return;
+        if(msg.length === 0) return;
         setOpen(true);
         setMsg(msg);
       };
     
     const handleClickErrorSnack = ( msg:string = '') => {
-      if(msg.length == 0) return;
+      if(msg.length === 0) return;
       setOpenError(true);
       setErrorMsg(msg);
     };  

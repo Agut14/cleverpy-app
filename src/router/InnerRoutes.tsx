@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom"
-import { BuscarPage } from "../app/pages/BuscarPage"
+import { SearchPage } from "../app/pages/SearchPage"
 import { HomePage } from "../app/pages/HomePage"
 import { NavBar } from '../ui/components/navbar/NavBar';
 import { SideBar } from "../ui/components/sidebar/SideBar"
@@ -14,7 +14,7 @@ export const InnerRoutes = () => {
         
         <Routes>
             <Route path='home' element={<HomePage />}/>
-            <Route path='buscar' element={<BuscarPage />}/>
+            <Route path='buscar' element={<SearchPage />}/>
             <Route path='edit/:id' element={<EditPage />}/>
 
             <Route path='/' element={<HomePage />}/>

@@ -14,6 +14,7 @@ import { getPostsById } from '../slices/post/thunks';
 
 export const EditPage = () => {
 
+  const { id } = useParams();
   const dispatch = useAppDispatch();
   const { updatePostsFromHook, deletePostsFromHook, isLoading, isError, errorMsg, postDeleted, post } = usePosts();
   const { isDisabled, toggleForm, body, title, onHandleChange, setFormData, resetData } = useForm({
@@ -29,7 +30,7 @@ export const EditPage = () => {
     setFormData();
    }, [ post ]);
 
-  const { id } = useParams();
+  
 
   const { open, openDialog, handleClose } = useDialog();
 

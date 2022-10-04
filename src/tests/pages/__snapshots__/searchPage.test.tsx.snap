@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Buscar page testings renders default values correctly 1`] = `
+<div>
+  <div
+    class="buscar-page-content"
+  >
+    <div
+      class="form-search-posts"
+    >
+      <div>
+        <h2
+          class="h2-search"
+        >
+          Buscar posts por usuario
+        </h2>
+        <form>
+          <input
+            autocomplete="off"
+            class="input-global"
+            name="searchText"
+            placeholder="Escribe algo..."
+            type="text"
+            value=""
+          />
+          <button
+            class="btn-buscar"
+          >
+            Buscar
+          </button>
+        </form>
+      </div>
+    </div>
+    <div
+      class="search-results"
+    >
+      <h2
+        class="h2-search"
+      >
+        Resultados
+      </h2>
+      <div>
+        <h4
+          class="h4-search"
+        >
+          Prueba a buscar por el nombre del usuario, por ejemplo Graham...
+        </h4>
+      </div>
+      <div
+        class="post-search"
+      >
+        <div />
+      </div>
+    </div>
+  </div>
+</div>
+`;
