@@ -1,9 +1,6 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { usePosts } from './usePosts';
-import { deletePosts } from '../slices/post/thunks';
-import { useSnackbar } from '../../hooks/useSnackbar';
 
+// hook para manejar los eventos y el estado del dialog
 
 export const useDialog = () => {
 

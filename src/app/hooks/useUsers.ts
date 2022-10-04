@@ -5,6 +5,8 @@ import { RootState } from "../../store/store";
 import { getUsers } from "../slices/user/thunk";
 
 
+//hook para actualizar el estado de los usuarios y obtenerlos
+
 export const useUsers = () => {
 
     const dispatch = useAppDispatch();

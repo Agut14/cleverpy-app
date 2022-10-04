@@ -1,8 +1,6 @@
 import { render, screen } from "@testing-library/react";
-import { RiH1 } from "react-icons/ri";
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
-import { PrivateRoute } from "../../router/PrivateRoute";
 import { PublicRoute } from '../../router/PublicRoute';
 
 export{};

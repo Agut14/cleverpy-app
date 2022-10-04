@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { formValues } from '../interfaces/formValues';
 
-
+//hook para controlar los eventos de los formularios
 export const useForm = (initialForm: formValues = {} ) => {
 
     const [formState, setFormState] = useState( initialForm ); 
@@ -13,7 +13,8 @@ export const useForm = (initialForm: formValues = {} ) => {
     const setFormData = () => {
         setFormState(initialForm);
     }
-
+//se actualiza el valor del formState mediante los inputs 
+//realizados por el usuario
     const onHandleChange = (target: HTMLInputElement | HTMLTextAreaElement) => {
         const { name, value } = target;
         setFormState(

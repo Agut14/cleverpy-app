@@ -16,18 +16,21 @@ export const SearchPage = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
+//se obtiene el valor de búsquede de la url
   const query = queryString.parse( location.search );
   const searchValue = query.q ?? '';
+//se obtienen los posts
   const posts = getPostsByAuthor( String(searchValue));
 
   const showSearch = (searchValue.length === 0);
   const showError = (searchValue.length !== 0) && posts?.length === 0;
   
   
-
+//cuando se realiza la búsqueda, se llama a la url actual con el
+//param q=searchValue
   const onSubmitSearch = ( event: React.FormEvent ) => {
     event.preventDefault();
-    if(searchText?.trim() == '') return;
+    if(searchText?.trim() === '') return;
     navigate(`?q=${searchText?.toLowerCase().trim()}`);
     resetData();
   };

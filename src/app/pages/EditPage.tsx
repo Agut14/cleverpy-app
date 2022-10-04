@@ -30,12 +30,11 @@ export const EditPage = () => {
     setFormData();
    }, [ post ]);
 
-  
-
   const { open, openDialog, handleClose } = useDialog();
 
-  const { openSnack, msgSnack, handleClickSnack, handleCloseSnack } = useSnackbar(); 
-
+  const { openSnack, msgSnack, handleClickSnack, handleCloseSnack } = useSnackbar();
+  
+//función para actualizar el post que a su vez llama al método del usePosts
   const updatePostForm = (event: React.FormEvent, id: number | undefined, data: post | undefined) => {
     updatePostsFromHook(event, id, data, handleClickSnack);
     toggleForm(event);
@@ -44,6 +43,7 @@ export const EditPage = () => {
     }
   }
 
+//función para eliminar el post que a su vez llama al método del usePosts
   const deletePostForm = (id?: number) => {
     handleClose();
     deletePostsFromHook( id, handleClickSnack);
@@ -57,6 +57,7 @@ export const EditPage = () => {
    }
   const snackType = !isError ? 'success' : 'error';
 
+//si no existe el post vuelve al inicio
   if(!post) {
     return <Navigate to={'/'} />
   }

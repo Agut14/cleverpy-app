@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+//hook para controlar el uso de los snackbar de la aplicación
 export const useSnackbar = () => {
 
     const [openSnack, setOpen] = useState(false);

@@ -1,12 +1,12 @@
-import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import { useAppDispatch } from "../../hooks";
 import { useForm } from "../../hooks/useForm";
 import { post} from "../../interfaces/postInterface";
 import { RootState } from "../../store/store";
-import { getPosts, updatePosts, deletePosts, getPostsById } from '../slices/post/thunks';
+import { updatePosts, deletePosts } from '../slices/post/thunks';
 
+//hook para manejar las acciones que se van a llamar en el slice,
+//y actualizar el estado de la aplicación.
 
 export const usePosts = () => {
 

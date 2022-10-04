@@ -10,7 +10,6 @@ import { getPosts } from '../slices/post/thunks';
 
 export const HomePage = () => {
 
-
   const dispatch = useAppDispatch();
   const { posts, isError, errorMsg } = usePosts();
   const { users } = useUsers();
