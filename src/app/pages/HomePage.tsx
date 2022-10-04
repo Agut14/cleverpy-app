@@ -12,8 +12,8 @@ export const HomePage = () => {
 
 
   const dispatch = useAppDispatch();
-  const { posts, isLoading, isError, errorMsg } = usePosts();
-  const { users, isLoadingUsers } = useUsers();
+  const { posts, isError, errorMsg } = usePosts();
+  const { users } = useUsers();
 
   useEffect(() => {
     dispatch(getPosts());

@@ -1,9 +1,9 @@
-import { Navigate, useParams, useNavigate } from 'react-router-dom';
+import { Navigate, useParams } from 'react-router-dom';
 import { usePosts } from '../hooks/usePosts';
 import '../styles/editPageStyles.scss'
 import { useForm } from '../../hooks/useForm';
 import { post } from "../../interfaces/postInterface";
-import { useEffect, useMemo } from 'react';
+import { useEffect } from 'react';
 import { AlertDialog } from '../components/AlertDialog';
 import { useDialog } from '../hooks/useDialog';
 import { Alert, CircularProgress, Snackbar } from "@mui/material";

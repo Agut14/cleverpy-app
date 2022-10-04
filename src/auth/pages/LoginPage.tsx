@@ -5,7 +5,6 @@ import { AuthContext } from '../../context/AuthContext';
 import { useForm } from '../../hooks/useForm';
 import { useSnackbar } from '../../hooks/useSnackbar';
 import { Alert, Snackbar } from '@mui/material';
-import { usePosts } from '../../app/hooks/usePosts';
 
 
 export const LoginPage = () => {
